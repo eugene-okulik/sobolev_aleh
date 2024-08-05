@@ -8,4 +8,3 @@ prod = a * b
 print("summa = ", round(summ, 4))
 print("different = ", round(diff, 4))
 print("product = ", round(prod, 4))
-5
