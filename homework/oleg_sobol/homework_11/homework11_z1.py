@@ -16,7 +16,7 @@ class Book:
     def __str__(self):
         return (f"Название: {self.title}, Автор: {self.author}, страницы: {self.pages}, "
                 f"материал: {self.material}"
-                + (f", зарезервирована" if self.reserved else ""))
+                + (", зарезервирована" if self.reserved else ""))
 
 
 class SchoolBook(Book):
@@ -29,7 +29,7 @@ class SchoolBook(Book):
     def __str__(self):
         return (f"Название: {self.title}, Автор: {self.author}, страницы: {self.pages}, "
                 f"предмет: {self.subject}, класс: {self.grade}"
-                + (f", зарезервирована" if self.reserved else ""))
+                + (", зарезервирована" if self.reserved else ""))
 
 
 book11 = SchoolBook("Алгебра", "Иван Иванов", 200, "1234567890", "Математика", 9)
