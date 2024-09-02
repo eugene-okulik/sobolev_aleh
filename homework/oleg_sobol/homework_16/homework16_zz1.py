@@ -3,6 +3,7 @@ import os
 import csv
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 db = mysql.connect(
