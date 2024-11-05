@@ -1,5 +1,4 @@
 from playwright.sync_api import Page
-from time import sleep
 
 
 def test_form_authentication(page: Page):
@@ -73,4 +72,3 @@ def test_automation_form_fill(page: Page):
 
     submit_button = page.get_by_role("button", name="Submit")
     submit_button.click()
-    sleep(5)
