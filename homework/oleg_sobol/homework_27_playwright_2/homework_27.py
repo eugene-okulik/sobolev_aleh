@@ -1,14 +1,18 @@
 import re
-from playwright.sync_api import Page, expect, BrowserContext
+from playwright.sync_api import Page, expect, BrowserContext, Dialog
 
 
 def test_alert(page: Page):
     page.goto("https://www.qa-practice.com/elements/alert/confirm")
+
+    def handle_dialog(alert: Dialog):
+        alert.accept()
+
+    page.on("dialog", handle_dialog)
     button_alert = page.get_by_role("link", name="Click")
     button_alert.click()
-    page.on("dialog", lambda dialog: dialog.accept())
-    text = page.locator("//*[@id='result-text']")
-    expect(text).to_be_visible()
+    result_text = page.locator("#result-text")
+    expect(result_text).to_have_text("Ok")
 
 
 def test_new_tab(page: Page, context: BrowserContext):
