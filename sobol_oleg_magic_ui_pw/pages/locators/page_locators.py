@@ -25,5 +25,3 @@ class SaleLoc:
     page_title_loc = "h1"
     logo_loc = "a.logo img"
     menu_loc = "nav.navigation"
-
-
