@@ -1,0 +1,22 @@
+Run tests:
+  stage: test
+  when: manual
+  image: python
+  artifacts:
+    when: always
+    expire_in: 2 days
+    paths:
+      - allure-report
+  before_script:
+    - python -m venv .venv
+    - source .venv/bin/activate
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+    - wget https://github.com/allure-framework/allure2/releases/download/2.24.1/allure-2.24.1.tgz
+    - tar -zxvf allure-2.24.1.tgz -C /opt/
+    - ln -s /opt/allure-2.24.1/bin/allure /usr/bin/allure
+  script:
+    - source .venv/bin/activate
+    - pytest --alluredir=allure-results
+  after_script:
+    - allure generate -c allure-results -o allure-report
